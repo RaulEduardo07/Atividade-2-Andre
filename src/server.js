@@ -1,6 +1,6 @@
-// src/server.js
 require("dotenv").config();
-console.log("MONGODB_URI:", process.env.MONGODB_URI);       // TEM QUE SER A PRIMEIRA COISA
+
+console.log("MONGODB_URI:", process.env.MONGODB_URI);     
 
 const app = require("./app");
 const connectDatabase = require("./config/database");

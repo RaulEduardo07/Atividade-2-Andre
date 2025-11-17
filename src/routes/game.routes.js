@@ -1,4 +1,3 @@
-// src/routes/game.routes.js
 const express = require("express");
 const {
   createGame,
@@ -11,11 +10,11 @@ const {
 
 const router = express.Router();
 
-router.get("/", listGames);           // GET /games
-router.get("/:id", getGameById);      // GET /games/:id
-router.post("/", createGame);         // POST /games
-router.put("/:id", updateGame);       // PUT /games/:id
-router.patch("/:id", patchGame);      // PATCH /games/:id
-router.delete("/:id", deleteGame);    // DELETE /games/:id
+router.get("/", listGames);           
+router.get("/:id", getGameById);      
+router.post("/", createGame);         
+router.put("/:id", updateGame);       
+router.patch("/:id", patchGame);      
+router.delete("/:id", deleteGame);    
 
 module.exports = router;

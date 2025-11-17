@@ -1,8 +1,7 @@
-// src/controllers/game.controller.js
 const mongoose = require("mongoose");
 const Game = require("../models/game.model");
 
-// Criar novo game
+
 async function createGame(req, res, next) {
   try {
     const { titulo, genero, plataforma, lancamento } = req.body;
@@ -16,11 +15,10 @@ async function createGame(req, res, next) {
 
     return res.status(201).json(novoGame);
   } catch (error) {
-    next(error); // manda pro middleware de erro
+    next(error); 
   }
 }
 
-// Listar todos os games
 async function listGames(req, res, next) {
   try {
     const games = await Game.find();
@@ -30,7 +28,6 @@ async function listGames(req, res, next) {
   }
 }
 
-// Buscar game por ID
 async function getGameById(req, res, next) {
   try {
     const { id } = req.params;
@@ -51,7 +48,6 @@ async function getGameById(req, res, next) {
   }
 }
 
-// Atualizar game (PUT – substitui tudo)
 async function updateGame(req, res, next) {
   try {
     const { id } = req.params;
@@ -65,7 +61,7 @@ async function updateGame(req, res, next) {
     const gameAtualizado = await Game.findByIdAndUpdate(
       id,
       { titulo, genero, plataforma, lancamento },
-      { new: true, runValidators: true } // retorna atualizado e valida
+      { new: true, runValidators: true } 
     );
 
     if (!gameAtualizado) {
@@ -78,7 +74,6 @@ async function updateGame(req, res, next) {
   }
 }
 
-// Atualização parcial (PATCH)
 async function patchGame(req, res, next) {
   try {
     const { id } = req.params;
@@ -104,7 +99,6 @@ async function patchGame(req, res, next) {
   }
 }
 
-// Deletar game
 async function deleteGame(req, res, next) {
   try {
     const { id } = req.params;
@@ -119,7 +113,7 @@ async function deleteGame(req, res, next) {
       return res.status(404).json({ message: "Game não encontrado" });
     }
 
-    return res.status(204).send(); // sem conteúdo
+    return res.status(204).send(); 
   } catch (error) {
     next(error);
   }
